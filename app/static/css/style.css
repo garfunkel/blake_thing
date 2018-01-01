@@ -1,0 +1,35 @@
+html, body {
+	height: 100%;
+	padding-top: 40px;
+	overflow: hidden;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+.full-height {
+	position: relative;
+	height: 100%;
+}
+
+.full-height-scroll {
+	position: relative;
+	height: 100%;
+	overflow-y: auto;
+	padding-bottom: 70px;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #e3e3e3;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

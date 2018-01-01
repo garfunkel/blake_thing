@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+	<script src="{{ url_for('static', filename='js/blake.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/list-content.js') }}"></script>
+
+	<div class="row full-height">
+		<div id="content-list" class="col-4 full-height">
+			<div class="input-group pb-3">
+				<input type="text" class="form-control input-lg mr-2 fuzzy-search" placeholder="Search"/>
+				<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#CreateAudioStoreModal">+</button>
+			</div>
+
+			<div class="full-height-scroll">
+				<ul id="content-list-items" class="list-group list"></ul>
+			</div>
+		</div>
+
+		<div class="col-8 full-height" id="content"></div>
+	</div>
+	{% include "modals/create_audiostore.html" %}
+{% endblock %}

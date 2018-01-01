@@ -1,0 +1,61 @@
+<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+<script src="{{ url_for('static', filename='js/modals/create_audiostore.js') }}"></script>
+
+<div class="modal fade" id="CreateAudioStoreModal" novalidate>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Create AudioStore</h5>
+			</div>
+
+			<form id="CreateAudioStoreForm">
+				<div class="modal-body">
+					<div class="alert alert-danger collapse" role="alert"></div>
+					<div class="alert alert-warning collapse" role="alert"></div>
+					<div class="form-row">
+						<div class="form-group col-6">
+							<label for="projectname">Project Name*</label>
+							<input type="text" name="name" class="form-control" id="name" placeholder="Cosmos" data-b_char>
+							<div class="invalid-feedback"></div>
+						</div>
+
+						<div class="form-group col-6">
+							<label for="projectname">Project Number*</label>
+							<input type="number" name="number" class="form-control" id="number" placeholder="12558" data-b_len="5" data-b_num>
+							<div class="invalid-feedback"></div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="descriptors">Descriptors</label>
+						<input type="text" name="descriptor" class="form-control" id="descriptor" placeholder="DrivingSim-2017" data-b_charnum->
+						<div class="invalid-feedback"></div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-6">
+							<label for="languagecode">Language Code*</label>
+							<input type="text" name="lancou" class="form-control" id="lancou" placeholder="ENG_USA" data-b_len="7" data-b_lancou>
+						</div>
+						<div class="form-group col-6">
+							<label for="share">Share*</label>
+							<select name="share_id" class="form-control" id="share_id"></select>
+							<div class="invalid-feedback"></div>
+						</div>
+					</div>
+					<div class="form-row">
+						<label for="path">Path</label>
+						<input type="text" name="path" class="form-control" id="path" readonly>
+					</div>
+				</div>
+
+				<div class="progress" style="display: none;">
+					  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;"></div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary" formnovalidate>Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

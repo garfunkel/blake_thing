@@ -1,0 +1,57 @@
+var scripts, scriptsList;
+
+$(function() {
+	init();
+	updateScripts();
+});
+
+function init() {
+	$("ul").on('click', 'li', function(e) {
+		console.log(this.value);
+		updateContent(this.value);
+	});
+};
+
+function updateScripts() {
+	$.getJSON($SCRIPT_ROOT + '/api/scripts', function(data){
+		scripts = data;
+		var templist = $('ul');
+		$.each(scripts, function(i, item) {
+			var listitem = $('<li>').val(i).appendTo(templist);
+			listitem.append($('<h1>').addClass("name").text(item.name));
+			listitem.append($('<p>').addClass("desc").text(item.desc));	
+		});
+		storeList = new List('script-list', {
+          valueNames: ['name', 'desc', 'id'],
+        });
+	});
+};
+
+function updateContent(id) {
+	$(".right-container h1").text(scripts[id].name);
+	$(".right-container p").text(scripts[id].desc)
+	$.getJSON($SCRIPT_ROOT + '/api/scripts/' + scripts[id].id, function(data){
+		$.each(data, function(i, item) {
+			$(".form-item").remove()
+			var span = $(".section#" + i)
+			$.each(item, function(ii, iitem) {
+				var div = $("<div>", {"id": iitem.name, "class": "form-item"}).appendTo(span);
+				switch (iitem.type) {
+					case "String":
+						div.append($("<p>").text(iitem.name));
+						div.append($("<p>").text(iitem.help));
+						break;
+					default:
+						console.log("Unable to...")
+				}
+			});
+		});
+	});
+};
+
+function submitScript() {
+	var values = $(".form-item")
+	$.each(values, function(i, item) {
+		console.log(item)	
+	});
+};
